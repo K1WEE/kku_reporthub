@@ -1,0 +1,18 @@
+@layer components {
+    .card-hover {
+        transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .gradient-overlay {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    }
+
+    .status-badge {
+        backdrop-filter: blur(4px);
+    }
+}

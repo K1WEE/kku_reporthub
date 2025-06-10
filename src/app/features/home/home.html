@@ -1,1 +1,300 @@
-<p>home works!</p>
+<main class="">
+    <nav class="bg-[#A73B24] h-16 py-3 px-10 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center c">
+            <h1 class="text-white text-xl font-bold">KKU Report Hub</h1>
+            <div class="flex space-x-10 items-center">
+                <a routerLink="#" class="text-white hover:text-orange-200 transition-colors">Home</a>
+                <a routerLink="#" class="text-white hover:text-orange-200 transition-colors">My Problem</a>
+                <a routerLink="#" class="text-white hover:text-orange-200 transition-colors">About</a>
+                <a routerLink="/login" class="text-white">
+                    <button class="bg-orange-400/70 hover:bg-orange-700 text-white px-4 py-2 rounded transition-colors">
+                        Login
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bg-[url('/bg.jpg')] bg-cover bg-center h-140 absolute w-full z-[-1] brightness-70"></div>
+
+    <section class="justify-center flex flex-col items-center min-h-screen">
+        <div class="max-w-7xl mx-auto text-center my-20 text-white">
+            <h2 class="text-2xl font-bold mb-4">Welcome to KKU Report Hub</h2>
+            <p class="mb-6">
+                This is a platform for reporting issues and problems at KKU.
+            </p>
+            <button
+                class="bg-[#A73B24] text-white px-4 py-2 rounded hover:bg-orange-900 transition-colors cursor-pointer">
+                Report
+            </button>
+        </div>
+
+        <div class="w-full px-4">
+            <div class="flex w-full snap-x gap-6 overflow-x-auto py-4 px-2 ">
+                <div class="relative shrink-0 snap-center h-80 w-80 bg-white rounded-xl shadow-lg card-hover cursor-pointer overflow-hidden"
+                    onclick="viewProblem(1)">
+                    <div class="h-48 bg-gradient-to-br bg-[#A73B24] relative">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="status-badge bg-red-500/80 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                รอการแก้ไข
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-bold text-lg">ปัญหาโครงสร้าง</h4>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">ถนนเป็นหลุมบ่อย</h5>
+                        <p class="text-gray-600 text-sm mb-3">
+                            ถนนในมหาวิทยาลัยมีหลุมบ่อยจำนวนมาก ก่อให้เกิดอันตรายต่อการสัญจร
+                        </p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>อาคาร EN</span>
+                            <span>2 วันที่แล้ว</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative shrink-0 snap-center h-80 w-72 bg-white rounded-xl shadow-lg card-hover cursor-pointer overflow-hidden"
+                    onclick="viewProblem(1)">
+                    <div class="h-48 bg-gradient-to-br bg-[#A73B24] relative">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="status-badge bg-red-500/80 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                รอการแก้ไข
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-bold text-lg">ปัญหาโครงสร้าง</h4>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">ถนนเป็นหลุมบ่อย</h5>
+                        <p class="text-gray-600 text-sm mb-3">
+                            ถนนในมหาวิทยาลัยมีหลุมบ่อยจำนวนมาก ก่อให้เกิดอันตรายต่อการสัญจร
+                        </p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>อาคาร EN</span>
+                            <span>2 วันที่แล้ว</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative shrink-0 snap-center h-80 w-72 bg-white rounded-xl shadow-lg card-hover cursor-pointer overflow-hidden"
+                    onclick="viewProblem(1)">
+                    <div class="h-48 bg-gradient-to-br bg-[#A73B24] relative">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="status-badge bg-yellow-500/80 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                รอดำเนินการ
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-bold text-lg">ปัญหาโครงสร้าง</h4>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">ถนนเป็นหลุมบ่อย</h5>
+                        <p class="text-gray-600 text-sm mb-3">
+                            ถนนในมหาวิทยาลัยมีหลุมบ่อยจำนวนมาก ก่อให้เกิดอันตรายต่อการสัญจร
+                        </p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>อาคาร EN</span>
+                            <span>2 วันที่แล้ว</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative shrink-0 snap-center h-80 w-72 bg-white rounded-xl shadow-lg card-hover cursor-pointer overflow-hidden"
+                    onclick="viewProblem(1)">
+                    <div class="h-48 bg-gradient-to-br bg-[#A73B24] relative">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="status-badge bg-green-500/80 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                แก้ไขแล้ว
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-bold text-lg">ปัญหาโครงสร้าง</h4>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">ถนนเป็นหลุมบ่อย</h5>
+                        <p class="text-gray-600 text-sm mb-3">
+                            ถนนในมหาวิทยาลัยมีหลุมบ่อยจำนวนมาก ก่อให้เกิดอันตรายต่อการสัญจร
+                        </p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>อาคาร EN</span>
+                            <span>2 วันที่แล้ว</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative shrink-0 snap-center h-80 w-72 bg-white rounded-xl shadow-lg card-hover cursor-pointer overflow-hidden"
+                    onclick="viewProblem(1)">
+                    <div class="h-48 bg-gradient-to-br bg-[#A73B24] relative">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="status-badge bg-blue-500/80 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                กำลังดำเนินการ
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="font-bold text-lg">ปัญหาโครงสร้าง</h4>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">ถนนเป็นหลุมบ่อย</h5>
+                        <p class="text-gray-600 text-sm mb-3">
+                            ถนนในมหาวิทยาลัยมีหลุมบ่อยจำนวนมาก ก่อให้เกิดอันตรายต่อการสัญจร
+                        </p>
+                        <div class="flex justify-between items-center text-xs text-gray-500">
+                            <span>อาคาร EN</span>
+                            <span>2 วันที่แล้ว</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto bg-orange-700 backdrop-blur-sm rounded-2xl p-8 mt-12 mb-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="bg-white/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white text-2xl font-bold">127</span>
+                        </div>
+                        <h4 class="text-white font-semibold">ปัญหาทั้งหมด</h4>
+                        <p class="text-white/70 text-sm">รายงานสะสม</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-500/30 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white text-2xl font-bold">89</span>
+                        </div>
+                        <h4 class="text-white font-semibold">แก้ไขแล้ว</h4>
+                        <p class="text-white/70 text-sm">70% ของทั้งหมด</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-blue-500/30 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white text-2xl font-bold">23</span>
+                        </div>
+                        <h4 class="text-white font-semibold">กำลังดำเนินการ</h4>
+                        <p class="text-white/70 text-sm">18% ของทั้งหมด</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-red-500/30 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white text-2xl font-bold">15</span>
+                        </div>
+                        <h4 class="text-white font-semibold">รอการแก้ไข</h4>
+                        <p class="text-white/70 text-sm">12% ของทั้งหมด</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="bg-[#A73B24] p-6">
+                    <h3 class="text-white text-xl font-semibold">แผนที่มหาวิทยาลัยขอนแก่น</h3>
+                </div>
+
+                <app-map></app-map>
+                    
+                    
+                    
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Feed Section -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">รายงานทั้งหมด</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    ติดตามความคืบหน้าของการแก้ไขปัญหาทั้งหมดในมหาวิทยาลัย
+                </p>
+            </div>
+
+            <div class="flex justify-center mb-8">
+                <div class="bg-gray-100 rounded-lg p-1 flex">
+                    <button class="px-6 py-2 rounded-md bg-[#A73B24] text-white font-semibold">ทั้งหมด</button>
+                    <button class="px-6 py-2 rounded-md text-gray-600 hover:bg-white transition-colors">รอการแก้ไข</button>
+                    <button class="px-6 py-2 rounded-md text-gray-600 hover:bg-white transition-colors">กำลังดำเนินการ</button>
+                    <button class="px-6 py-2 rounded-md text-gray-600 hover:bg-white transition-colors">แก้ไขแล้ว</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                    <div class="h-48 bg-gradient-to-br bg-[#A73B24] rounded-t-lg relative">
+                        <span class="absolute top-3 left-3 bg-red-500/80 text-white px-2 py-1 rounded text-sm">
+                            รอการแก้ไข
+                        </span>
+                        <div class="absolute bottom-3 left-3 text-white">
+                            <h4 class="font-bold">ปัญหาโครงสร้าง</h4>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2">ถนนเป็นหลุมบ่อย</h3>
+                        <p class="text-gray-600 text-sm mb-3">
+                            ถนนในมหาวิทยาลัยมีหลุมบ่อยจำนวนมาก ก่อให้เกิดอันตรายต่อการสัญจร
+                        </p>
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>อาคาร EN</span>
+                            <span>นักศึกษา</span>
+                            <span>2 วันที่แล้ว</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">KKU Report Hub</h3>
+                    <p class="text-gray-300 text-sm">
+                        แพลตฟอร์มรายงานปัญหาและข้อเสนอแนะสำหรับมหาวิทยาลัยขอนแก่น
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white">รายงานปัญหา</a></li>
+                        <li><a href="#" class="hover:text-white">ติดตามสถานะ</a></li>
+                        <li><a href="#" class="hover:text-white">คำถามที่พบบ่อย</a></li>
+                        <li><a href="#" class="hover:text-white">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>โครงสร้างพื้นฐาน</li>
+                        <li>สาธารณูปโภค</li>
+                        <li>สิ่งแวดล้อม</li>
+                        <li>ความปลอดภัย</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contract</h4>
+                    <div class="text-sm text-gray-300 space-y-2">
+                        <p></p>
+                        <p>043-202-555</p>
+                        <p>มหาวิทยาลัยขอนแก่น</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-300">
+                <p>&copy; 2024 KKU Report Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</main>
