@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Home } from './features/home/home';
 import { Login } from './features/login/login';
 import { Map } from './features/map/map';
+import { Report } from './features/report/report';
 
 export const routes: Routes = [
     {
@@ -13,5 +14,8 @@ export const routes: Routes = [
     },{
         path: 'map',
         component: Map
+    },{
+        path: 'report',
+        component: Report
     }
 ];

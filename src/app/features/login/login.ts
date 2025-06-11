@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Login {
   fg = new FormGroup({
-    email: new FormControl(''),
+    student_id: new FormControl(''),
     password: new FormControl('')
   })
 }

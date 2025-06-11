@@ -21,7 +21,15 @@ export class Map {
     clickableIcons: false,
     zoomControl: true,
     streetViewControl: false,
-    fullscreenControl: true
+    fullscreenControl: true,
+    styles: [
+      {
+        featureType: 'poi',
+        stylers: [
+          { visibility: 'off' }
+        ]
+      }
+    ]
   };
 
   move(event: google.maps.MapMouseEvent) {
@@ -39,6 +47,7 @@ export class Map {
     this.markerPositions.push(event.latLng.toJSON());
     console.log(this.markerPositions);
   }
+  
 
   
 }

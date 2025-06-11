@@ -1,17 +1,4 @@
 
-    <nav class="bg-[#A73B24] shadow-md">
-        <div class="h-16 max-w-7xl mx-auto px-10 sm:px-6 lg:px-10">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <a routerLink="/" class="text-white text-xl font-bold">KKU Report Hub</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a routerLink="/" class="text-white hover:text-orange-200 transition-colors">back</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
     <div class="min-h-screen bg-pattern flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full space-y-8">
             <div class="text-center">
@@ -32,9 +19,9 @@
                                 </label>
                                 <div class="relative">
                                     
-                                    <input id="student-id" name="student-id" type="text" required 
-                                           class="appearance-none relative block w-full pl-5 pr-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
-                                           placeholder="เช่น 641234567">
+                                    <input id="student-id" name="student-id" type="text" formControlName="student-id" required 
+                                    class="appearance-none relative block w-full pl-5 pr-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
+                                    placeholder="เช่น 641234567">
                                 </div>
                             </div>
 
@@ -44,15 +31,15 @@
                                 </label>
                                 <div class="relative">
                                     <input id="student-password" name="student-password" type="password" required 
-                                           class="appearance-none relative block w-full pl-5  pr-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
-                                           placeholder="รหัสผ่าน">
+                                    class="appearance-none relative block w-full pl-5  pr-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
+                                    placeholder="รหัสผ่าน">
                                 </div>
                             </div>
                         </div>
                     
 
                     <!-- Remember Me & Forgot Password -->
-                    <div class="flex items-center justify-between">
+                    <!-- <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <input id="remember-me" name="remember-me" type="checkbox" 
                                     class="h-4 w-4 text-[#A73B24] focus:ring-[#A73B24] border-gray-300 rounded">
@@ -65,7 +52,7 @@
                                 ลืมรหัสผ่าน?
                             </a>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div>
                         <button type="submit" 
@@ -88,7 +75,7 @@
                 <div class="mt-6 text-center">
                     <p class="text-sm text-gray-600">
                         ยังไม่มีบัญชี? 
-                        <a href="#" class="font-medium text-[#A73B24] hover:text-orange-700 transition-colors">
+                        <a routerLink="register" class="font-medium text-[#A73B24] hover:text-orange-700 transition-colors">
                             สมัครสมาชิก
                         </a>
                     </p>

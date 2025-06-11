@@ -1,7 +1,7 @@
 <div class="grid grid-cols-3">
     <div class="h-120 bg-gray-200 relative overflow-hidden col-span-2">
         <!-- Mock Map Interface -->
-        <google-map [center]="center" [zoom]="14" width="100%" (mapClick)="addMarker($event)"
+        <google-map [center]="center" [zoom]="14" width="100%" (mapClick)="addMarker($event)" 
             (mapMousemove)="move($event)" [options]="options">
             @for (position of markerPositions; track position) {
                 <map-marker [position]="position"  />
