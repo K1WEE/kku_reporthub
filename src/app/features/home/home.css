@@ -7,6 +7,10 @@
         transform: translateY(-5px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
+    div:hover > .card-hover:not(:hover) {
+        filter: blur(1px);
+        opacity: 0.9;
+    }
 
     .gradient-overlay {
         background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
