@@ -1,5 +1,22 @@
 
-    <div class="min-h-screen bg-pattern flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+<nav class="bg-[#A73B24] h-16 py-3 px-10 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center c">
+            <h1 class="text-white text-xl font-bold">KKU Report Hub</h1>
+            <div class="flex space-x-10 items-center">
+                <a routerLink="/" class="text-white hover:text-orange-200 transition-colors">Home</a>
+                <a routerLink="report" class="text-white hover:text-orange-200 transition-colors">Report</a>
+                <!-- <a routerLink="#" class="text-white hover:text-orange-200 transition-colors">About</a> -->
+                
+                <a routerLink="/login" class="text-white">
+                    <button class="bg-white/20 hover:bg-orange-700 text-white px-4 py-2 rounded transition-colors cursor-pointer">
+                        Login
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="min-h-screen bg-pattern flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        
         <div class="max-w-md w-full space-y-8">
             <div class="text-center">
                 
@@ -8,20 +25,17 @@
             </div>
 
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <form class="space-y-6" action="#" method="POST">
-                    
-
-                    
+                <form [formGroup]="signInForm" (submit)="onSubmit()" class="space-y-6"  action="#" method="POST">
                         <div class="space-y-4">
                             <div>
                                 <label for="student-id" class="block text-sm font-medium text-gray-700 mb-2">
-                                    รหัสนักศึกษา
+                                    email
                                 </label>
                                 <div class="relative">
                                     
-                                    <input id="student-id" name="student-id" type="text" formControlName="student-id" required 
+                                    <input id="email" name="email" type="text" formControlName="email" required 
                                     class="appearance-none relative block w-full pl-5 pr-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
-                                    placeholder="เช่น 641234567">
+                                    placeholder="Example@kkumail.com">
                                 </div>
                             </div>
 
@@ -30,7 +44,7 @@
                                     รหัสผ่าน
                                 </label>
                                 <div class="relative">
-                                    <input id="student-password" name="student-password" type="password" required 
+                                    <input id="password" name="password" type="password" formControlName="password" required 
                                     class="appearance-none relative block w-full pl-5  pr-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
                                     placeholder="รหัสผ่าน">
                                 </div>
@@ -55,9 +69,9 @@
                     </div> -->
 
                     <div>
-                        <button type="submit" 
+                        <button type="submit" class="button block" [disabled]="loading"
                                 class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-[#A73B24] hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A73B24] transition-colors">
-                            เข้าสู่ระบบ
+                            {{ loading ? 'Loading' : 'Login' }}
                         </button>
                     </div>
 
@@ -75,7 +89,7 @@
                 <div class="mt-6 text-center">
                     <p class="text-sm text-gray-600">
                         ยังไม่มีบัญชี? 
-                        <a routerLink="register" class="font-medium text-[#A73B24] hover:text-orange-700 transition-colors">
+                        <a routerLink="/register" class="font-medium text-[#A73B24] hover:text-orange-700 transition-colors">
                             สมัครสมาชิก
                         </a>
                     </p>

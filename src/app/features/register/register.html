@@ -1,0 +1,80 @@
+
+    <div class="min-h-screen bg-pattern flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-md w-full space-y-8">
+            <div class="text-center">
+                
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">สมัครสมาชิก</h2>
+                <p class="text-gray-600">สมัครสมาชิกเพื่อรายงานและติดตามปัญหา</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                @if (errorMessage) {
+                    <div class="text-red-500 text-sm mb-4">
+                        {{errorMessage}}
+                    </div>
+                }
+                
+                
+                <form [formGroup]="signUpForm" (submit)="onSubmit()" class="space-y-6"  action="#" method="POST">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="username" class="block text-sm font-medium text-gray-700 mb-2">
+                                    username
+                                </label>
+                                <div class="relative">
+                                    
+                                    <input id="username" name="username" type="text" formControlName="username" autocomplete="current-password" required 
+                                    class="appearance-none relative block w-full pl-5 pr-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
+                                    placeholder="username">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="student-id" class="block text-sm font-medium text-gray-700 mb-2">
+                                    email
+                                </label>
+                                <div class="relative">
+                                    
+                                    <input id="email" name="email" type="text" formControlName="email" autocomplete="new-password" required 
+                                    class="appearance-none relative block w-full pl-5 pr-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
+                                    placeholder="Example@kkumail.com">
+                                </div>
+                            </div>
+                            @if (signUpForm.get('email')?.errors?.['email']) {
+                                <div class="text-red-500 text-sm mt-1">
+                                    กรุณากรอกอีเมลที่ถูกต้อง
+                                </div>
+                            }
+
+                            <div>
+                                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                                    password
+                                </label>
+                                <div class="relative">
+                                    <input id="password" name="password" type="password" formControlName="password" autocomplete="new-password" required 
+                                    class="appearance-none relative block w-full pl-5  pr-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
+                                    placeholder="password">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">
+                                    confirm password
+                                </label>
+                                <div class="relative">
+                                    <input id="confirmPassword" name="confirmPassword" type="password" formControlName="confirmPassword" autocomplete="new-password" required 
+                                    class="appearance-none relative block w-full pl-5  pr-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
+                                    placeholder="confirm-password">
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                    <div>
+                        <button type="submit" class="button block" [disabled]="loading"
+                                class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-[#A73B24] hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A73B24] transition-colors">
+                            {{ loading ? 'loading' : 'Register' }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

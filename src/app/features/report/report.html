@@ -1,12 +1,198 @@
-<div class="relative min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-4xl">
-        <div class="text-center mb-8 animate-fade-in">
-                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-700 to-orange-600 text-white text-3xl rounded-full mb-4 shadow-lg">
-                    <i class="fa fa-book" aria-hidden="true"></i>
-                </div>
+<nav class="bg-[#A73B24] h-16 py-3 px-10 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center c">
+            <h1 class="text-white text-xl font-bold">KKU Report Hub</h1>
+            <div class="flex space-x-10 items-center">
+                <a routerLink="/" class="text-white hover:text-orange-200 transition-colors">Home</a>
+                <a routerLink="report" class="text-white hover:text-orange-200 transition-colors">Report</a>
+                <!-- <a routerLink="#" class="text-white hover:text-orange-200 transition-colors">About</a> -->
+                
+                <a routerLink="/login" class="text-white">
+                    <button class="bg-white/20 hover:bg-orange-700 text-white px-4 py-2 rounded transition-colors cursor-pointer">
+                        Login
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+<div class="min-h-screen bg-gray-50 py-8 px-4">
+    <div class="max-w-2xl mx-auto">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="text-center mb-8 animate-fade-in">
+
                 <h1 class="text-4xl font-bold text-dark-900 mb-2">รายงานปัญหา</h1>
                 <p class="text-gray-700 text-lg">รายงานปัญหาที่คุณพบเจอในมหาวิทยาลัยขอนแก่น</p>
             </div>
-    </div>
+            <h1 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+                แจ้งปัญหา
+            </h1>
 
+            <form [formGroup]="problemForm" (ngSubmit)="onSubmit()" class="space-y-6">
+                <div>
+                    <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                        หัวข้อปัญหา <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" id="title" formControlName="title"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="กรุณาระบุหัวข้อปัญหา" />
+                    @if (problemForm.get('title')?.touched &&
+                    problemForm.get('title')?.errors?.['required']) {
+                    <div class="text-red-500 text-sm mt-1">กรุณากรอกหัวข้อปัญหา</div>
+                    }
+                </div>
+
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                        รายละเอียดปัญหา <span class="text-red-500">*</span>
+                    </label>
+                    <textarea id="description" formControlName="description" rows="4"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="กรุณาอธิบายรายละเอียดปัญหา"></textarea>
+                    @if (problemForm.get('description')?.touched &&
+                    problemForm.get('description')?.errors?.['required']) {
+                    <div class="text-red-500 text-sm mt-1">กรุณากรอกรายละเอียดปัญหา</div>
+                    }
+                </div>
+
+                <div>
+                    <label for="category" class="block text-sm font-medium text-gray-700 mb-2">
+                        หมวดหมู่ <span class="text-red-500">*</span>
+                    </label>
+                    <select id="category" formControlName="category"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">เลือกหมวดหมู่</option>
+                        <option value="infrastructure">โครงสร้างพื้นฐาน</option>
+                        <option value="safety">ความปลอดภัย</option>
+                        <option value="other">อื่นๆ</option>
+                    </select>
+                    @if (problemForm.get('category')?.touched && problemForm.get('category')?.errors?.['required']) {
+                    <div class="text-red-500 text-sm mt-1">
+                        กรุณาเลือกหมวดหมู่
+                    </div>
+                    }
+
+                </div>
+
+                <div>
+                    <label for="image" class="block text-sm font-medium text-gray-700 mb-2">
+                        รูปภาพประกอบ
+                    </label>
+                    <div class="flex items-center justify-center w-full">
+                        <label for="image"
+                            class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <p class="mb-2 text-sm text-gray-500">
+                                    <span class="font-semibold">คลิกเพื่อเลือกไฟล์</span>
+                                    หรือลากไฟล์มาวาง
+                                </p>
+                                <p class="text-xs text-gray-500">
+                                    PNG, JPG หรือ GIF (ขนาดไม่เกิน 10MB)
+                                </p>
+                            </div>
+                            <input id="image" type="file" class="hidden" (change)="onFileSelected($event)"
+                                accept="image/*" />
+                        </label>
+                    </div>
+                    @if (selectedFileName) {
+                    <div class="mt-2 text-sm text-green-600">
+                        ไฟล์ที่เลือก: {{ selectedFileName }}
+                    </div>
+                    }
+
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <button (click)="getCurrentLocation()" [disabled]="isGettingLocation">
+                        @if (isGettingLocation) {
+                            <span>Getting Location...</span>
+                        } @else {
+                            <span>Get My Location</span>
+                        }
+                    </button>
+
+                    @if (locationError) {
+                        <div class="text-red-500 text-sm mb-2">
+                            {{ locationError }}
+                        </div>
+                    }
+
+                    @if (currentLocation) {
+                        <div>
+                            <p>Latitude: {{ currentLocation.latitude }}</p>
+                            <p>Longitude: {{ currentLocation.longitude }}</p>
+                            <p>Accuracy: {{ currentLocation.accuracy }}m</p>
+                            @if (currentLocation.address) {
+                                <p>
+                                    Address: {{ currentLocation.address }}
+                                </p>
+                            }
+                        </div>
+                    }
+
+                    <div id="map" style="height: 300px; width: 100%;"></div>
+                    <!--                     
+                    <div class="flex items-center justify-between mb-3">
+                        <label class="block text-sm font-medium text-gray-700">
+                            ตำแหน่งที่เกิดปัญหา
+                        </label>
+                        <button type="button" (click)="getCurrentLocation()" [disabled]="isGettingLocation"
+                            class="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                            @if (isGettingLocation) {
+                            <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                
+                            </svg>
+                            } @if (!isGettingLocation) {
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            } {{ isGettingLocation ? 'กำลังค้นหา...' : 'ขอตำแหน่งปัจจุบัน' }}
+                        </button>
+                    </div>
+
+                    @if (locationError) {
+                    <div class="text-red-500 text-sm mb-2">{{ locationError }}</div>
+                    }
+
+                    @if (currentLocation) {
+                        <div class="space-y-2">
+                            <div class="text-sm text-gray-600">
+                                <strong>ละติจูด:</strong> {{ currentLocation.latitude }}
+                            </div>
+                            <div class="text-sm text-gray-600">
+                                <strong>ลองจิจูด:</strong> {{ currentLocation.longitude }}
+                            </div>
+                            <div class="text-sm text-gray-600">
+                                <strong>ความแม่นยำ:</strong> {{ currentLocation.accuracy }} เมตร
+                            </div>
+                        </div>
+                    }
+                    
+
+                    @if (!currentLocation && !locationError && !isGettingLocation) {
+                        <div class="text-sm text-gray-500">
+                        กดปุ่มด้านบนเพื่อขอตำแหน่งปัจจุบันของคุณ
+                    </div>
+                    } -->
+
+                </div>
+
+                <!-- ปุ่มส่ง -->
+                <div class="flex justify-end space-x-3">
+                    <button type="button"
+                        class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        ยกเลิก
+                    </button>
+                    <button type="submit" [disabled]="problemForm.invalid"
+                        class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                        ส่งรายงานปัญหา
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

@@ -3,6 +3,8 @@ import { Home } from './features/home/home';
 import { Login } from './features/login/login';
 import { Map } from './features/map/map';
 import { Report } from './features/report/report';
+import { Register } from './features/register/register';
+import { authGuard } from './core/guards/auth-guard';
 
 export const routes: Routes = [
     {
@@ -16,6 +18,10 @@ export const routes: Routes = [
         component: Map
     },{
         path: 'report',
-        component: Report
+        component: Report,
+        // canActivate: [authGuard]
+    },{
+        path: 'register',
+        component: Register
     }
 ];
