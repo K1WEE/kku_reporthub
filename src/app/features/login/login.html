@@ -4,12 +4,11 @@
             <h1 class="text-white text-xl font-bold">KKU Report Hub</h1>
             <div class="flex space-x-10 items-center">
                 <a routerLink="/" class="text-white hover:text-orange-200 transition-colors">Home</a>
-                <a routerLink="report" class="text-white hover:text-orange-200 transition-colors">Report</a>
                 <!-- <a routerLink="#" class="text-white hover:text-orange-200 transition-colors">About</a> -->
                 
-                <a routerLink="/login" class="text-white">
+                <a routerLink="/register" class="text-white">
                     <button class="bg-white/20 hover:bg-orange-700 text-white px-4 py-2 rounded transition-colors cursor-pointer">
-                        Login
+                        Register
                     </button>
                 </a>
             </div>
@@ -33,7 +32,7 @@
                                 </label>
                                 <div class="relative">
                                     
-                                    <input id="email" name="email" type="text" formControlName="email" required 
+                                    <input id="email" name="email" type="text" formControlName="email" autocomplete="email" required 
                                     class="appearance-none relative block w-full pl-5 pr-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
                                     placeholder="Example@kkumail.com">
                                 </div>
@@ -44,7 +43,7 @@
                                     รหัสผ่าน
                                 </label>
                                 <div class="relative">
-                                    <input id="password" name="password" type="password" formControlName="password" required 
+                                    <input id="password" name="password" type="password" formControlName="password" autocomplete="current-password" required 
                                     class="appearance-none relative block w-full pl-5  pr-10 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A73B24] focus:border-transparent focus:z-10 sm:text-sm" 
                                     placeholder="รหัสผ่าน">
                                 </div>

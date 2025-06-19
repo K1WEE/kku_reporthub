@@ -22,6 +22,11 @@ export class Login {
   constructor(
     private readonly supabase: Supabase,
   ) {}
+
+  ngOnInit(): void {
+    console.log(this.supabase.currentUser());
+  }
+
   async onSubmit(): Promise<void> {
     try {
       this.loading = true

@@ -2,13 +2,9 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center c">
             <h1 class="text-white text-xl font-bold">KKU Report Hub</h1>
             <div class="flex space-x-10 items-center">
-                <a routerLink="/" class="text-white hover:text-orange-200 transition-colors">Home</a>
-                <a routerLink="report" class="text-white hover:text-orange-200 transition-colors">Report</a>
-                <!-- <a routerLink="#" class="text-white hover:text-orange-200 transition-colors">About</a> -->
-                
-                <a routerLink="/login" class="text-white">
+                <a routerLink="/" class="text-white">
                     <button class="bg-white/20 hover:bg-orange-700 text-white px-4 py-2 rounded transition-colors cursor-pointer">
-                        Login
+                        Back
                     </button>
                 </a>
             </div>
@@ -60,9 +56,12 @@
                     <select id="category" formControlName="category"
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                         <option value="">เลือกหมวดหมู่</option>
-                        <option value="infrastructure">โครงสร้างพื้นฐาน</option>
-                        <option value="safety">ความปลอดภัย</option>
-                        <option value="other">อื่นๆ</option>
+                        @for (category of categories; track $index) {
+                            <option value="{{category}}">{{category}}</option>
+                        }
+                        
+                        <!-- <option value="safety">ความปลอดภัย</option>
+                        <option value="other">อื่นๆ</option> -->
                     </select>
                     @if (problemForm.get('category')?.touched && problemForm.get('category')?.errors?.['required']) {
                     <div class="text-red-500 text-sm mt-1">
@@ -181,7 +180,6 @@
 
                 </div>
 
-                <!-- ปุ่มส่ง -->
                 <div class="flex justify-end space-x-3">
                     <button type="button"
                         class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">

@@ -19,7 +19,7 @@ export const routes: Routes = [
     },{
         path: 'report',
         component: Report,
-        // canActivate: [authGuard]
+        canActivate: [authGuard]
     },{
         path: 'register',
         component: Register
